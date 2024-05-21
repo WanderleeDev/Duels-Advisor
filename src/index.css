@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Belwe-bold";
+    font-display: swao;
+    src: local("belwe-bold"),
+      url("./assets//fonts/belwe-bold.woff2") format("woff2"),
+      url("./assets//fonts/belwe-bold.woff") format("woff"),
+      url("./assets//fonts/belwe-bold.ttf") format("ttf");
+  }
+}
+
+@layer utilities {
+  .u-text-stroke {
+    -webkit-text-stroke: 2px #575857;
+    text-shadow:
+    3px 3px 0 #000,
+    /* Simulated effect for Firefox and Opera
+       and nice enhancement for WebKit */
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
+  }
+}
