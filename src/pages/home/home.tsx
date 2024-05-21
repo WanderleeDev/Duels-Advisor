@@ -6,11 +6,17 @@ export default function Home() {
   return (
     <>
       <Banner />
+      <div className="absolute z-10 top-7 left-2/4 -translate-x-2/4 w-full">
+        <InfoLink />
+      </div>
       <section className="bg-white dark:bg-gray-900 min-h-dvh grid place-content-center">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-          <InfoLink />
           <div className="animate-slide-up-fade animate-duration-800">
-            <img className="object-cover mx-auto block" src={logo} alt="yu-gi-oh logo" />
+            <img
+              className="object-cover mx-auto block"
+              src={logo}
+              alt="yu-gi-oh logo"
+            />
             <h1 className="mb-4 text-4xl font-extrabold leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white select-none font-Belwe tracking-wider u-text-stroke">
               Duels Advisor
             </h1>
