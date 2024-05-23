@@ -7,9 +7,9 @@
     font-family: "Belwe-bold";
     font-display: swao;
     src: local("belwe-bold"),
-      url("./assets//fonts/belwe-bold.woff2") format("woff2"),
-      url("./assets//fonts/belwe-bold.woff") format("woff"),
-      url("./assets//fonts/belwe-bold.ttf") format("ttf");
+      url("/public/fonts/belwe-bold.woff2") format("woff2"),
+      url("/public/fonts/belwe-bold.woff") format("woff"),
+      url("/public/fonts/belwe-bold.ttf") format("ttf");
   }
 }
 
