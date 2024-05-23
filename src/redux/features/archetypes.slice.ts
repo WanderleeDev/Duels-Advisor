@@ -1,20 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { archetypeState } from "../models/archetype.model";
+import { createSlice } from '@reduxjs/toolkit'
+import { archetypeState } from '../models/archetype.model'
 
-const initialState: archetypeState =  {
+const initialState: archetypeState = {
   archetypes: []
 }
 
 const archetypesSlice = createSlice({
-  name: "archetypes",
+  name: 'archetypes',
   initialState,
   reducers: {
     fetchArchetypes: (state) => {
-      return state;
-    },
-  },
-});
+      return state
+    }
+  }
+})
 
-export const { fetchArchetypes } = archetypesSlice.actions;
+export const { fetchArchetypes } = archetypesSlice.actions
 
-export default archetypesSlice.reducer;
+export default archetypesSlice.reducer
