@@ -8,7 +8,7 @@ const initialState: ICardDbState = {
   offset:0
 } 
 
-const cardDbSlice = createSlice({
+export const cardDbSlice = createSlice({
   name: 'cardDb',
   initialState,
   reducers: {
