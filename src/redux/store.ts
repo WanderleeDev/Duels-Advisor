@@ -1,18 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit";
-import archetypesReducers from "./features/archetypes.slice";
-import { archetypesApi } from "./services/archetypesApi";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import userReducers from "./features/user.slice";
+import { configureStore } from '@reduxjs/toolkit'
+import archetypesReducers from './features/archetypes.slice'
+import { archetypesApi } from './services/archetypesApi'
+import { setupListeners } from '@reduxjs/toolkit/query'
+import userReducers from './features/user.slice'
 
 export const store = configureStore({
   reducer: {
     userReducers,
     archetypesReducers,
-    [archetypesApi.reducerPath]: archetypesApi.reducer,
+    [archetypesApi.reducerPath]: archetypesApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([archetypesApi.middleware]),
-});
+    getDefaultMiddleware().concat([archetypesApi.middleware])
+})
 
 setupListeners(store.dispatch)
 
