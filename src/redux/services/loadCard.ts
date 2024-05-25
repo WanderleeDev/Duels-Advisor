@@ -9,10 +9,10 @@ export const cardApi = createApi({
     baseUrl: import.meta.env.VITE_YUGIOH_API,
   }),
   endpoints: (builder) => {
-    const params = new URLSearchParams({
+    /*const params = new URLSearchParams({
       num: '1',
       offset: '0',
-    })
+    })*/
     return {
       getCards: builder.query<IResCardData, null>({
         query: () => `/cardinfo.php?/cardinfo.php?num=1&offset=0`,
