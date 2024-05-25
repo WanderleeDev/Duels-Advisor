@@ -7,6 +7,9 @@ export default {
       fontFamily: {
         Belwe: ["Belwe-bold"],
       },
+      screens: {
+        xs: "350px",
+      },
     },
   },
   plugins: [animations],
