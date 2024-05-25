@@ -18,7 +18,7 @@ export default function Content () {
             Card catalog, information, strategies and more, create your custom
             deck and get a tailor-made strategy
           </p>
-          <Link className='text-amber-400 hover:text-white underline font-Belwe text-2xl' to='/advisor'>
+          <Link className='text-amber-400 hover:text-white underline font-Belwe text-2xl transition-colors' to='/advisor'>
             let's duel
           </Link>
         </div>

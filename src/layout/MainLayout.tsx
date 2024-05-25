@@ -64,6 +64,7 @@ const MainLayout: React.FC = () => {
         <div className="demo-logo-vertical" />
         <Menu
           className="capitalize"
+          defaultValue={[window.location.pathname]}
           onClick={({ key }) => navigateTo(key)}
           theme="dark"
           defaultSelectedKeys={["1"]}
@@ -76,7 +77,7 @@ const MainLayout: React.FC = () => {
           Duels Advisor
         </Header>
         <Content className="pt-8 mx-4">
-          <div className="bg-white rounded-lg shadow-lg p-6 h-full">
+          <div className="bg-white rounded-lg shadow-lg p-6 h-full overflow-y-scroll">
             <ErrorBoundary>
               <Suspense fallback="CARGANDO ...">
                 <Outlet />
