@@ -1,9 +1,26 @@
 import DevStamp from "./DevStamp";
 import ListBasic from "./ListBasic";
+import { IDataItem } from "../interfaces/IListBasic.interface";
+import react from "/public/images/technologies/react.svg";
+import typescript from "/public/images/technologies/typescript.svg";
+import tailwindcss from "/public/images/technologies/tailwindcss.svg";
+import redux from "/public/images/technologies/redux.svg";
+import hookForm from "/public/images/technologies/react-hook-form.svg";
+import routerDom from "/public/images/technologies/react-router-dom.svg";
+import vite from "/public/images/technologies/vite.svg";
 
 export default function About() {
-  const mainTools = ["react", "tailwindcss", "typescript"];
-  const otherTools = ["redux", "react hook form", "react router-dom", "vite"];
+  const mainTools: IDataItem[] = [
+    { text: "react", icon: react },
+    { text: "typescript", icon: typescript },
+    { text: "tailwindcss", icon: tailwindcss },
+  ];
+  const otherTools: IDataItem[] = [
+    { text: "redux", icon: redux },
+    { text: "react hook form", icon: hookForm },
+    { text: "react router-dom", icon: routerDom },
+    { text: "vite", icon: vite },
+  ];
 
   return (
     <article className="grid gap-4">

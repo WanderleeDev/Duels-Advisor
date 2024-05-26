@@ -1,9 +1,14 @@
-import { useState } from "react";
-import useModal from "../../../hooks/useModal";
+import React, { useState } from "react";
 import { Button, Modal } from "antd";
-import LazyComponent from "../../../shared/ui/LazyComponent";
+import useModal from "../../../hooks/useModal";
 import { ContentModal } from "../interfaces/ContentModal.enum";
+import LazyComponent from "../../../shared/ui/LazyComponent";
 import DevStamp from "./DevStamp";
+
+const About = React.lazy(() => import("./About"));
+const Contact = React.lazy(() => import("./Contact"));
+const Licensing = React.lazy(() => import("./Licensing"));
+const PrivacyPolicy = React.lazy(() => import("./PrivacyPolicy"));
 
 export default function Footer() {
   const { handleCancel, isModalOpen, showModal } = useModal();
@@ -23,11 +28,14 @@ export default function Footer() {
         okType="primary"
         onCancel={handleCancel}
       >
-        <div className="max-h-72 overflow-y-scroll u-scrollStyle">
+        <div className="h-72 overflow-y-scroll u-scrollStyle">
           {contentModal && (
-            <LazyComponent
-              routeComponent={`/src/pages/Home/components/${contentModal.replace(" ","")}`}
-            />
+            <LazyComponent>
+              {contentModal === ContentModal.about && <About />}
+              {contentModal === ContentModal.privacy && <PrivacyPolicy />}
+              {contentModal === ContentModal.contact && <Contact />}
+              {contentModal === ContentModal.licensing && <Licensing />}
+            </LazyComponent>
           )}
         </div>
       </Modal>
@@ -41,6 +49,7 @@ export default function Footer() {
               <Button
                 className="hover:underline me-4 md:me-6 bg-white/60 font-semibold text-red-700 hover:border-red-700 w-full hover:text-red-500 block sm:inline"
                 key={content}
+                style={{ color: "#b91c1c" }}
                 onClick={() => revealModal(content)}
               >
                 {content}
