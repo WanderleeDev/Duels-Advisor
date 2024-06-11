@@ -49,9 +49,9 @@ export default function About() {
       </p>
       <ListBasic title="Technologies Used" list={mainTools} />
       <ListBasic title="Complementary technologies" list={otherTools} />
-      <div className="bg-slate-800 py-4 rounded-md flex justify-center">
+      <footer className="bg-slate-800 py-4 rounded-md flex justify-center">
         <DevStamp />
-      </div>
+      </footer>
     </article>
   );
 }

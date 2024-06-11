@@ -1,4 +1,4 @@
-import card from '/public/images/blueEyes.webp'
+import card from '/public/images/others/blueEyes.webp'
 
 export default function CardAnimated () {
   return (

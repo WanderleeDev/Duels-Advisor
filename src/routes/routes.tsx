@@ -1,21 +1,26 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { MAIN_ROUTES } from './lazyComponents'
-import advisorRouter from './advisorRoutes'
+import React from "react";
+import { createBrowserRouter } from "react-router-dom";
+import advisorRouter from "./advisorRoutes";
+
+const LazyHome = React.lazy(() => import("../pages/Home"));
+const LazyAdvisor = React.lazy(() => import("../pages/Advisor/Advisor"));
+const LazyNotFound = React.lazy(() => import("../pages/NotFound"));
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <MAIN_ROUTES.lazyHome />,
-    errorElement: <MAIN_ROUTES.lazyNotFound />,
+    path: "/",
+    element: <LazyHome />,
+    errorElement: <LazyNotFound />,
   },
   {
-    path: '/advisor',
-    element: <MAIN_ROUTES.lazyAdvisor />,
-    errorElement: <MAIN_ROUTES.lazyNotFound />,
-    children: advisorRouter
+    path: "/advisor",
+    element: <LazyAdvisor />,
+    errorElement: <LazyNotFound />,
+    children: advisorRouter,
   },
   {
-    path: '*',
-    errorElement: <MAIN_ROUTES.lazyNotFound />
-  }
-])
+    path: "*",
+    errorElement: <LazyNotFound />,
+  },
+]);
+

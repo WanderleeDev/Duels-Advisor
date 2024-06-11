@@ -1,93 +1,38 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import ErrorBoundary from "antd/es/alert/ErrorBoundary";
-import type { MenuProps } from "antd";
+import { FloatButton } from "antd";
 // theme
-import { Layout, Menu } from "antd";
-import { Outlet, useNavigate } from "react-router-dom";
-import getAvailableRoutes from "../utils/getAvailableRoutes";
+import { Layout, Spin } from "antd";
+import { Outlet } from "react-router-dom";
+import DevStamp from "../pages/Home/components/DevStamp";
+import ControlNavigation from "../shared/ui/ControlNavigation";
+import MainTitle from "../shared/ui/MainTitle";
+import MainMenu from "../shared/ui/MainMenu";
 
-const { Header, Content, Footer, Sider } = Layout;
-
-type MenuItem = Required<MenuProps>["items"][number];
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
-
-const itemss: MenuItem[] = getAvailableRoutes().map((route) =>
-  getItem(route.replace("-", " "), route)
-);
-
-// const items: MenuItem[] = [
-//   getItem("Option 1", "1", <PieChartOutlined />),
-//   getItem("Option 2", "2", <DesktopOutlined />),
-//   getItem("User", "sub1", <UserOutlined />, [
-//     getItem("Tom", "3"),
-//     getItem("Bill", "4"),
-//     getItem("Alex", "5"),
-//   ]),
-//   getItem("Team", "sub2", <TeamOutlined />, [
-//     getItem("Team 1", "6"),
-//     getItem("Team 2", "8"),
-//   ]),
-//   getItem("Files", "9", <FileOutlined />),
-// ];
+const { Header, Content } = Layout;
 
 const MainLayout: React.FC = () => {
-  const navigate = useNavigate();
-  const [collapsed, setCollapsed] = useState(false);
-  // const {
-  //   token: { colorBgContainer, borderRadiusLG }
-  // } = theme.useToken()
-
-  function navigateTo(key: string): void {
-    navigate(key);
-  }
-
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-      >
-        <div className="demo-logo-vertical" />
-        <Menu
-          className="capitalize"
-          defaultValue={[window.location.pathname]}
-          onClick={({ key }) => navigateTo(key)}
-          theme="dark"
-          defaultSelectedKeys={["1"]}
-          mode="inline"
-          items={itemss}
-        />
-      </Sider>
+      <div className="w-20">
+        <MainMenu />
+      </div>
       <Layout>
-        <Header className="bg-white text-4xl font-extrabold leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white select-none font-Belwe tracking-wider u-text-stroke text-center">
-          Duels Advisor
+        <Header className="grid grid-cols-[1fr_auto] bg-white items-center">
+          <MainTitle customClass="col-[1/3] text-2xl sm:text-4xl lg:text-6xl row-[1/2] text-center" />
+          <ControlNavigation customClass="col-[2/3] row-[1/2] hidden md:block" />
         </Header>
-        <Content className="pt-8 mx-4">
-          <div className="bg-white rounded-lg shadow-lg p-6 h-full overflow-y-scroll">
-            <ErrorBoundary>
-              <Suspense fallback="CARGANDO ...">
-                <Outlet />
-              </Suspense>
-            </ErrorBoundary>
-          </div>
+        <Content className="pt-8 mx-4 h-full overflow-y-scroll">
+          <ErrorBoundary>
+            <Suspense fallback={<Spin spinning fullscreen />}>
+              <Outlet />
+            </Suspense>
+          </ErrorBoundary>
         </Content>
-        <Footer className="text-center">
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
+        <FloatButton.BackTop type="primary" tooltip="scroll to top" />
+        <footer className="bg-slate-800 py-4 flex justify-center">
+          <DevStamp />
+        </footer>
       </Layout>
     </Layout>
   );
