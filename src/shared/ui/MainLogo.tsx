@@ -1,4 +1,5 @@
-import logo from "/public/images/Yu-Gi-Oh-logo.webp";
+import MainTitle from "./MainTitle";
+import logo from "/public/images/others/Yu-Gi-Oh-logo.webp";
 
 export default function MainLogo() {
   return (
@@ -8,9 +9,7 @@ export default function MainLogo() {
         src={logo}
         alt="yu-gi-oh logo"
       />
-      <h1 className="mb-4 text-4xl font-extrabold leading-none sm:text-6xl   text-white select-none font-Belwe tracking-wider u-text-stroke">
-        Duels Advisor
-      </h1>
+      <MainTitle customClass="text-4xl sm:text-6xl" />
     </>
   );
 }

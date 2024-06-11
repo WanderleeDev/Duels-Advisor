@@ -1,10 +1,5 @@
 import { useState } from 'react'
-
-interface IUseModal {
-  showModal: () => void;
-  isModalOpen: boolean;
-  handleCancel: () => void;
-}
+import IUseModal from '../shared/interfaces/IUseModal.interface'
 
 function useModal (): IUseModal {
   const [isModalOpen, setIsModalOpen] = useState(false)

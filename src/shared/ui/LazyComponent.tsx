@@ -1,17 +1,22 @@
 import React from "react";
 import ErrorBoundary from "antd/es/alert/ErrorBoundary";
 import { Suspense } from "react";
-
+import { SyncOutlined } from "@ant-design/icons";
 interface Props {
-  routeComponent: string;
+  children: React.ReactNode;
 }
 
-function LazyComponent({ routeComponent }: Props) {
-  const Componente = React.lazy(() => import(routeComponent));
+function LazyComponent({ children }: Props) {
+  const Loading = () => (
+    <div className="flex justify-center items-center h-52">
+      <SyncOutlined spin className="text-6xl text-blue-600" />
+    </div>
+  );
+
   return (
     <ErrorBoundary>
-      <Suspense fallback={"Cargando..."}>
-        <Componente />
+      <Suspense fallback={<Loading />}>
+        {children}
       </Suspense>
     </ErrorBoundary>
   );

@@ -9,18 +9,32 @@ export interface IResCardData {
   meta: Meta;
 }
 
+export interface IResCardDataById {
+  data: ICardData[];
+}
+
 export interface ICardData {
   archetype: string;
   card_images: ICardImage[];
   card_prices: ICardPrice[];
   card_sets: ICardSet[];
+  banlist_info?: IBanListInfo;
   desc: string;
   frameType: string;
   id: number;
   name: string;
   race: string;
   type: string;
+  atk?: number;
+  def?: number;
+  level?: number;
+  linkval?: number;
+  scale?: number;
+  linkmarkers?: string[];
+  attribute?: string;
   ygoprodeck_url: string;
+  pend_desc?: string;
+  monster_desc?: string;
 }
 
 export interface ICardImage {
@@ -36,6 +50,10 @@ export interface ICardPrice {
   coolstuffinc_price: string;
   ebay_price: string;
   tcgplayer_price: string;
+}
+
+export interface IBanListInfo {
+  ban_goat: string;
 }
 
 export interface ICardSet {

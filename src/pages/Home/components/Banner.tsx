@@ -1,4 +1,4 @@
-import banner from '/public/images/banner.svg'
+import banner from '/public/images/others/banner.svg'
 
 export default function Banner () {
   return (

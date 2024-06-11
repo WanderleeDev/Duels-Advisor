@@ -10,6 +10,15 @@ export default {
       screens: {
         xs: "350px",
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 4s linear infinite",
+      },
     },
   },
   plugins: [animations],
