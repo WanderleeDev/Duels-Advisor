@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
-import useModal from "../../../hooks/useModal";
-import { ContentModal } from "../interfaces/ContentModal.enum";
-import LazyComponent from "../../../shared/ui/LazyComponent";
-import DevStamp from "./DevStamp";
+import useModal from "../../../../hooks/useModal";
+import { ContentModal } from "../../interfaces/ContentModal.enum";
+import LazyComponent from "../../../../shared/ui/LazyComponent";
+import DevStamp from "../DevStamp";
+import './fotter.css'
 
-const About = React.lazy(() => import("./About"));
-const Contact = React.lazy(() => import("./Contact"));
-const Licensing = React.lazy(() => import("./Licensing"));
-const PrivacyPolicy = React.lazy(() => import("./PrivacyPolicy"));
+const About = React.lazy(() => import("../About"));
+const Contact = React.lazy(() => import("../Contact"));
+const Licensing = React.lazy(() => import("../Licensing"));
+const PrivacyPolicy = React.lazy(() => import("../PrivacyPolicy"));
 
 export default function Footer() {
   const { handleCancel, isModalOpen, showModal } = useModal();
@@ -26,7 +27,8 @@ export default function Footer() {
         centered
         title={contentModal}
         okType="primary"
-        onCancel={handleCancel}
+        onOk={handleCancel}
+        closeIcon={false}
       >
         <div className="h-72 overflow-y-scroll u-scrollStyle">
           {contentModal && (
