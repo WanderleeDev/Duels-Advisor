@@ -27,7 +27,7 @@ export default function Catalog() {
       <div>
         <InputSearch customClass={searchBarClassName} />
         <AutoGrid>
-          {data.map(({ card_images, id, name, type }) => (
+          {data.map(({ card_images, id, name }) => (
             <Link to={`${id}`} key={id}>
               <GridCard title={name} image={card_images[0].image_url_small} />
             </Link>
