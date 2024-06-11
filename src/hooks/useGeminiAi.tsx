@@ -17,7 +17,7 @@ export default function useGeminiAi(model: GeminiModels) {
       responseMimeType: "application/json",
     }
   };
-  const prompt = "Write a short paragraph on chatGPT"
+  //  const prompt = "Write a short paragraph on chatGPT"
   // const image = {
   //   data: 
   // }
